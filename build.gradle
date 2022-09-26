@@ -24,7 +24,7 @@ logging.captureStandardOutput LogLevel.INFO
 
 
 ext {
-    allureVersion = '2.14.0'
+    allureVersion = '2.19.0'
     junitVersion = '5.7.0'
     restAssuredVersion = "4.3.3"
     orgJsonVersion = "20201115"
@@ -50,8 +50,8 @@ allure {
 dependencies {
     testImplementation "org.aspectj:aspectjweaver:${orgAspectjVersion}"
     testImplementation "io.qameta.allure:allure-rest-assured:${allureVersion}"
-    testImplementation "io.qameta.allure:allure-junit-platform:${allureVersion}"
-    testImplementation "io.qameta.allure:allure-junit5:${allureVersion}"
+//    testImplementation "io.qameta.allure:allure-junit-platform:${allureVersion}"
+    testImplementation "io.qameta.allure:allure-java-commons:${allureVersion}"
 
 
     testImplementation "io.rest-assured:rest-assured:${restAssuredVersion}"
@@ -97,6 +97,5 @@ tasks.withType(Test) {
 
 task reqres(type: Test) {
     useJUnitPlatform {
-        includeTags 'rest_api_tests_reqres'
     }
 }
