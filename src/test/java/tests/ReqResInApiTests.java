@@ -37,15 +37,13 @@ class ReqResInApiTests extends TestBase {
     RestAssuredConfig config;
 
     @Test
-    @DisplayName("1. Simple get, no assertions. Server response attached.")
-    @Description("1. Simple RestAssured get request and sending it to System.out. No assertion.")
+    @DisplayName("Simple get, no assertions. Server response attached.")
     void simpleGetRestAssured() {
-        step("get by RestAssured, print to the std system output", ()-> {
+
             RestAssured.baseURI = baseUrl;
             usersList = get("/api/users?page=2").asString();
             AttachmentsHelper.attachAsText("Server response: ", usersList);
             System.out.println(usersList);
-        });
     }
 
     @Test
