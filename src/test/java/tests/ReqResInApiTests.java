@@ -31,13 +31,14 @@ class ReqResInApiTests extends TestBase {
         RestAssured.baseURI = baseUrl;
             given()
                     .log().all();
-
+        System.out.println("Opening " + baseURI);
             email = get("/api/users?page=2")
                     .then()
                     .statusCode(200)
                     .extract()
                     .response()
                     .path("data[2].email");
+        System.out.println("Extracted email is " + email);
             assertThat(email, is(CREATED_USER));
     }
 
